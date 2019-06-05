@@ -65,6 +65,7 @@ const createApp = () => {
 
   // auth and api routes
   app.use('/auth', require('./auth'))
+  // mounting all of the api backend routes in our api folder
   app.use('/api', require('./api'))
 
   // static file-serving middleware
@@ -82,11 +83,15 @@ const createApp = () => {
   })
 
   // sends index.html
+  // we send our index.html file for any request that dont match one of our APIs
   app.use('*', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'public/index.html'))
   })
 
   // error handling endware
+  // a 500 server error means we messed up
+  // this code is for handling 500 errors
+
   app.use((err, req, res, next) => {
     console.error(err)
     console.error(err.stack)
@@ -97,7 +102,7 @@ const createApp = () => {
 const startListening = () => {
   // start listening (and create a 'server' object representing our server)
   const server = app.listen(PORT, () =>
-    console.log(`Mixing it up on port ${PORT}`)
+    console.log(`Starting server on port ${PORT}`)
   )
 
   // set up our socket control center
