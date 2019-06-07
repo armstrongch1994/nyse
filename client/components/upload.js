@@ -41,20 +41,20 @@ class upload extends Component {
   sendRequest(file) {
     console.log('this method is getting called')
     //CREATE THE FORM DATA HERE AND THEN SEND IT TO A THUNK??
-    const formData = new FormData()
-    formData.append('file', file, file.name)
-    console.log('FORMDATA ', formData)
-    let {data} = axios.post('/api/upload', formData)
+    //const formData = new FormData()
+    //formData.append('file', file, file.name)
+    //console.log('FORMDATA ', formData)
+    //let {data} = axios.post('/api/upload', formData)
 
-    // return new Promise((resolve, reject) => {
-    //   const req = new XMLHttpRequest()
+    return new Promise((resolve, reject) => {
+      const req = new XMLHttpRequest()
 
-    //   const formData = new FormData()
-    //   formData.append('file', file, file.name)
+      const formData = new FormData()
+      formData.append('file', file, file.name)
 
-    //   req.open('POST', 'http://localhost:8000/upload')
-    //   req.send(formData)
-    // })
+      req.open('POST', 'http://localhost:8080/upload')
+      req.send(formData)
+    })
   }
   renderActions() {
     if (this.state.successfullUploaded) {

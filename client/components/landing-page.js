@@ -6,7 +6,6 @@ class landingPage extends Component {
     return (
       <div>
         <h1>NYSE Landing Page</h1>
-        <Upload />
       </div>
     )
   }
