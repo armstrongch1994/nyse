@@ -10,7 +10,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
     <nav>
       <div>
         <Link to="/home">Home</Link>
-        <Link to="/allCompanies">List View</Link>
+        <Link to="/allCompanies">All companies</Link>
         <Link to="/upload">Upload</Link>
       </div>
     </nav>
