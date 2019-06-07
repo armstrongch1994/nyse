@@ -13,8 +13,15 @@ class ListView extends Component {
         {this.props.allCompanies.map(companies => {
           return (
             <div key={companies.id}>
-              {companies.companyName}
-              {companies.sharePrice}
+              <div>
+                {' '}
+                <b> Company: </b>
+                {companies.companyName}{' '}
+              </div>
+              <div>
+                {' '}
+                <b>Share Price:</b> {companies.sharePrice}
+              </div>
             </div>
           )
         })}

@@ -75,7 +75,7 @@ class Dropzone extends Component {
           multiple
           onChange={this.onFilesAdded}
         />
-        <span>Upload Files</span>
+        <span>Upload CSV Files</span>
       </div>
     )
   }

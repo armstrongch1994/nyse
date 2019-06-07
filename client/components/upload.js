@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import wrapper from './wrapper'
 import Dropzone from './dropzone'
 import axios from 'axios'
+import {Redirect} from 'react-router-dom'
 
 class upload extends Component {
   constructor(props) {
@@ -25,6 +26,7 @@ class upload extends Component {
   }
   async uploadFiles() {
     this.setState({uploading: true})
+
     const promises = []
     this.state.files.forEach(file => {
       promises.push(this.sendRequest(file))
@@ -40,12 +42,6 @@ class upload extends Component {
   }
   sendRequest(file) {
     console.log('this method is getting called')
-    //CREATE THE FORM DATA HERE AND THEN SEND IT TO A THUNK??
-    //const formData = new FormData()
-    //formData.append('file', file, file.name)
-    //console.log('FORMDATA ', formData)
-    //let {data} = axios.post('/api/upload', formData)
-
     return new Promise((resolve, reject) => {
       const req = new XMLHttpRequest()
 
@@ -80,7 +76,10 @@ class upload extends Component {
   render() {
     return (
       <div className="upload">
-        <h6 className="Title">Upload Files</h6>
+        <div className="directons">
+          Click the icon to select your file or drag and drop from your file
+          system.
+        </div>
         <div className="Content">
           <div>
             <Dropzone
